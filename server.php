@@ -14,6 +14,10 @@ $uri = urldecode(
 // This file allows us to emulate Apache's "mod_rewrite" functionality from the
 // built-in PHP web server. This provides a convenient way to test a Laravel
 // application without having installed a "real" web server software here.
+//if ($uri !== '/' && fipackage.jsonle_exists(__DIR__.'/public'.$uri)) {
+//    return false;
+//}
+
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
 }
