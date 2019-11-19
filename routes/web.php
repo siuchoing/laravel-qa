@@ -21,10 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::resource('questions', 'QuestionsController');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/lesson-5/questions', 'QuestionsController@index_lesson5');

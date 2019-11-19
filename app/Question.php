@@ -20,4 +20,17 @@ class Question extends Model
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
+
+    public function getUrlAttribute()
+    {
+        // -> {{ $question->user->url }}
+        return route("questions.show", $this->id);          // where $this reference to $questions in QuestionsController
+    }
+
+    public function getCreatedDateAttribute()
+    {
+        // -> {{ $question->created_date }}
+        return $this->created_at->diffForHumans();
+    }
+
 }
