@@ -24,7 +24,8 @@ class Question extends Model
     public function getUrlAttribute()
     {
         // -> {{ $question->user->url }}
-        return route("questions.show", $this->id);          // where $this reference to $questions in QuestionsController
+        //return route("questions.show", $this->id);          // where $this reference to $questions in QuestionsController
+        return route("questions.show", $this->slug);    // where pass data by boot() from RouteServiceProvider.php
     }
 
     public function getCreatedDateAttribute()
@@ -42,6 +43,11 @@ class Question extends Model
             return "answered";
         }
         return "unanswered";
+    }
+
+    public function getBodyHtmlAttribute() {
+        //dd(\Parsedown::instance()->text($this->body));
+        return \Parsedown::instance()->text($this->body);
     }
 
 
