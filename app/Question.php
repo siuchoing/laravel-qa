@@ -9,7 +9,8 @@ class Question extends Model
 {
     protected $fillable = ['title', 'body'];
 
-    public function user() {
+    public function user()
+    {
         // $this (module) belong to User
         return $this->belongsTo(User::class);
     }
@@ -45,7 +46,8 @@ class Question extends Model
         return "unanswered";
     }
 
-    public function getBodyHtmlAttribute() {
+    public function getBodyHtmlAttribute()
+    {
         //dd(\Parsedown::instance()->text($this->body));
         return \Parsedown::instance()->text($this->body);
     }
