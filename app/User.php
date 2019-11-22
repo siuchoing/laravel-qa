@@ -49,7 +49,7 @@ class User extends Authenticatable
         return '#';
     }
 
-    public function answers()
+    public function answers_count()
     {
         return $this->hasMany(Answer::class);
     }
