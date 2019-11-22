@@ -52,7 +52,7 @@ class Question extends Model
         return \Parsedown::instance()->text($this->body);
     }
 
-    public function answers_count()
+    public function answers()
     {
         return $this->hasMany(Answer::class);
         // $question->answer->count();
