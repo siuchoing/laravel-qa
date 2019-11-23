@@ -21,7 +21,7 @@
                                     <i class="fas fa-caret-up fa-3x"></i>
                                 </a>
                                 <span class="votes-count">1230</span>
-                                <a title="This question is not useful!" class="vote-down off">
+                                <a title="This question is not useful!" class="vote-down disabled">
                                     <i class="fas fa-caret-down fa-3x"></i>
                                 </a>
                                 <a title="Click to mark as favorite question (Click again to undo)" class="favorite mt-2 favorited">

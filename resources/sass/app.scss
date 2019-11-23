@@ -89,5 +89,9 @@ form.form-delete {
     }
     a {
         cursor: pointer;
+
+        &.disabled, &.disabled:hover {
+            color: $gray-500;
+        }
     }
 }
