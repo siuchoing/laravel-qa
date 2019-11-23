@@ -20,6 +20,8 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
+     * boot() is used to bind 'slug' in url
+     *
      * @return void
      */
     public function boot()
@@ -27,7 +29,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('slug', function($slug) {
             //$question = Question::where('slug', $slug)->first();
             //return $question ? question : abort(404);
-            return Question::where('slug', $slug)->first() ?? abort(404);
+            return Question::with('answers.user')->where('slug', $slug)->first() ?? abort(404);
         });
 
         parent::boot();
