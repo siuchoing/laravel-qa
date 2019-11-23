@@ -89,9 +89,20 @@ form.form-delete {
     }
     a {
         cursor: pointer;
+        color: $gray-600;
 
         &.disabled, &.disabled:hover {
             color: $gray-500;
+        }
+
+        &.favorite {
+            &.favorited, &.favorited:hover {
+                color: $warning;
+            }
+        }
+
+        &.vote-accepted {
+            color: $green;
         }
     }
 }
