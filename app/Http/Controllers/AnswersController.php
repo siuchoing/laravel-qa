@@ -11,17 +11,15 @@ class AnswersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Question $question
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Question $question, Request $request)
     {
-        $question->answers()->create([
-            $request->validate([
-                'body' => 'required',
-            ]) + [
-                'user_id' => \Auth::id()]
-        ]);
+        $question->answers()->create($request->validate([
+                'body' => 'required'
+            ]) + ['user_id' => \Auth::id()]);
         return back()->with('success', "Your answer has been submitted successfully");
     }
 
