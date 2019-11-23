@@ -21,10 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 /*------------------- Question -----------------------*/
 Route::resource('questions', 'QuestionsController')->except('show');
-//Route::get('/questions/{slug}', 'QuestionsController@show')->name('questions.show');
+Route::get('/questions/{slug}', 'QuestionsController@show')->name('questions.show');
 //Route::get('/lesson-5/questions', 'QuestionsController@index_lesson5');
 
 
 /*------------------- Answer -------------------------*/
 //Route::post('/questions/{question}/answers', 'AnswersController@store')->name('answers.store');
-Route::resource('answers', 'AnswersController')->except(['index', 'create', 'show']);;
+Route::resource('questions.answers', 'AnswersController')->except(['index', 'create', 'show']);
+
