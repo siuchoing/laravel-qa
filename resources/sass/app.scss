@@ -74,4 +74,17 @@ form.form-delete {
     margin-right: 30px;
     text-align: center;
     color: $gray-700;       // reference from "/node_modules/bootstrap/scss/_variables.scss"
+
+    span, a {
+        display: block;
+    }
+
+    span {
+        &.votes-count {
+            font-size:25px;
+        }
+        &.favorites-count {
+            font-size:12px;
+        }
+    }
 }
