@@ -7,6 +7,22 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+/**************************************************************************************/
+/*                                 Setup of FontAwesome                               */
+/**************************************************************************************/
+
+// FontAwesome from node_modules repository
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';     //
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';           // fas
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';          // fab
+
+// Look for folder from public directory to generate font folder for FontAwesome [optonal]
+$fa-font-path: "../webfonts";
+
+/**************************************************************************************/
+/*                                  End of FontAwesome                                */
+/**************************************************************************************/
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
