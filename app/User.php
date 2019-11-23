@@ -53,4 +53,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Answer::class);
     }
+
+    /* Generate PHP Image (個人頭像) from the hash of email by Gravatar
+     * http://en.gravatar.com/site/implement/images/php/
+    */
+
+    public function getAvatarAttribute() {
+        $email = $this->email;
+        $hash = md5( strtolower( trim( $email ) ) );
+        $size = 32;
+        $url = "https://www.gravatar.com/avatar/" . $hash . "&s=" . $size;
+        return $url;
+
+    }
 }
