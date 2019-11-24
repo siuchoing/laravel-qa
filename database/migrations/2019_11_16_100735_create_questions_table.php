@@ -21,7 +21,7 @@ class CreateQuestionsTable extends Migration
             $table->unsignedInteger('views')->default(0);   // unsignedInteger (non negative integers)
             $table->unsignedInteger('answers')->default(0); // unsigned means (non negative)
             $table->integer('votes')->default(0);           // integer (+/- integers)
-            $table->unsignedInteger('best_answer_id')->nullable();
+            $table->unsignedBigIncrements('best_answer_id')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
