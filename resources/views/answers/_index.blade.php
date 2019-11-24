@@ -44,7 +44,7 @@
                                     <span class="text-muted">Answered {{ $answer->created_date }}</span>
                                     <div class="media mt-2">
                                         <a href="{{ $answer->user->url }}" class="pr-2">
-                                            <img src="{{ $answer->user->avatar }}">
+                                            <img src="{{ $answer->user->avatar }}" style="width: 33px;">
                                         </a>
                                         <div class="media-body mt-1">
                                             <a href="{{ $answer->user->url }}">{{ $answer->user->name }}</a>
