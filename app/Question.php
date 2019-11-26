@@ -61,7 +61,6 @@ class Question extends Model
 
     public function acceptBestAnswer(Answer $answer)
     {
-        dd($this->best_answer_id);
         $this->best_answer_id = $answer->id;
         $this->save();
     }
