@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersQuestionAnswerTableSeeder::class,
             FavoritesTableSeeder::class,
+            VotablesTableSeeder::class
         ]);
     }
 };
