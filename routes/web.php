@@ -24,6 +24,7 @@ Route::resource('questions', 'QuestionsController')->except('show');
 Route::get('/questions/{slug}', 'QuestionsController@show')->name('questions.show');
 Route::post('/questions/{question}/favorites', 'FavoritesController@store')->name('questions.favorite');
 Route::delete('/questions/{question}/favorites', 'FavoritesController@destroy')->name('questions.unfavorite');
+Route::post('/questions/{question}/vote', 'VoteQuestionController');
 
 //Route::get('/lesson-5/questions', 'QuestionsController@index_lesson5');
 
