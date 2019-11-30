@@ -50,7 +50,7 @@ class Question extends Model
 
     public function getBodyHtmlAttribute()
     {
-        return $this->bodyHtml();
+        return clean($this->bodyHtml());
     }
 
     public function answers()
