@@ -24,6 +24,11 @@ class Question extends Model
         $this->attributes['slug'] = Str::slug($value);
     }
 
+    public function setBodyAttribute($value)
+    {
+        $this->attributes['body'] = clean($value);
+    }
+
     public function getUrlAttribute()
     {
         // -> {{ $question->user->url }}
