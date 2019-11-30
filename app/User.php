@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $appends = ['url', 'avatar'];         // bind to getAvatarAttribute for UserInfo.vue
+
     /**
      * The attributes that should be hidden for arrays.
      *
