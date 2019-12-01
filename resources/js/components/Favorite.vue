@@ -14,7 +14,7 @@
             return {
                 isFavorited: this.question.is_favorited,
                 count: this.question.favorites_count,
-                signedIn: true,
+                //signedIn: true,       // replace by window object in 'layouts.app'
                 id: this.question.id
             }
         },
@@ -29,10 +29,21 @@
 
             endpoint () {
                 return `/questions/${this.id}/favorites`;
+            },
+
+            signedIn () {
+                return window.Auth.signedIn;
             }
         },
         methods: {
             toggle () {
+                if (! this.signedIn) {
+                    this.$toast.warning("Please Login to favorite this question", "Warning", {
+                        timeout: 3000,
+                        position: 'bottomLeft',
+                    });
+                    return;
+                }
                 this.isFavorited ? this.destroy() : this.create();
             },
 
