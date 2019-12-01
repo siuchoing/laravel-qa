@@ -29,6 +29,7 @@ Vue.use(VueIziToast);
 
 Vue.component('answer', require('./components/Answer.vue').default);        // default for ES6
 Vue.component('user-info', require('./components/UserInfo.vue').default);
+Vue.component('favorite', require('./components/Favorite.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
