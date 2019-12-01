@@ -8,8 +8,8 @@
                 <div class="form-group">
                     <textarea rows="10" v-model="body" class="form-control"></textarea>
                 </div>
-                <button type="submit">Update</button>
-                <button type="button" @click.prevent="editing = false">Cancel</button>
+                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-outline-secondary" type="button" @click.prevent="editing = false">Cancel</button>
             </form>
             <div v-else>
                <div v-html="bodyHtml"></div>
