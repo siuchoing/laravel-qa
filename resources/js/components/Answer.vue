@@ -7,7 +7,9 @@
         props: ['answer'],
         data() {
             return {
-                editing: false
+                editing: false,
+                body: this.answer.body,
+                bodyHtml: this.answer.body_html,
             }
         }
     }
