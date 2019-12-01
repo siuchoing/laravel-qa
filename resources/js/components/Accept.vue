@@ -1,43 +1,53 @@
 <template>
     <div>
         <a v-if="canAccept" title="Mark this answer as best answer"
-           :class="classes">
+           :class="classes"
+           @click.prevent="create"
+        >
             <i class="fas fa-check fa-2x"></i>
         </a>
 
-        <a v-if="isBest" title="The question owner accept this answer as best answer"
-           :class="classes">
+        <a v-if="accepted" title="The question owner accepted this answer as best answer"
+           :class="classes"
+        >
             <i class="fas fa-check fa-2x"></i>
         </a>
     </div>
-
 </template>
 
 <script>
     export default {
         props: ['answer'],
-
         data () {
-            return {        // return object
-                isBest: this.answer.is_best
+            return {
+                isBest: this.answer.is_best,
+                id: this.answer.id
             }
-
         },
-
+        methods: {
+            create () {
+                axios.post(`/answers/${this.id}/accept`)
+                    .then(res => {
+                        this.$toast.success(res.data.message, "Success", {
+                            timeout: 3000,
+                            position: 'bottomLeft'
+                        });
+                        this.isBest = true;
+                    })
+            }
+        },
         computed: {
             canAccept () {
                 return true;
             },
-
             accepted () {
-                return !this.canAccept && this.answer.is_best;
+                return !this.canAccept && this.isBest;
             },
-
             classes () {
                 return [
                     'mt-2',
-                    this.accepted ? 'vote-accepted' : ''
-                ]
+                    this.isBest ? 'vote-accepted' : ''
+                ];
             }
         }
     }
