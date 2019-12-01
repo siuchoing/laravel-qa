@@ -41,10 +41,16 @@
                     alert(res.data.message)
                 })
                 .catch(err => {
-                    console.log("Something went wrong.");
+                    // console.log(error.response.data.errors.body[0]);
+                    alert(err.response.data.message);
                 });
             },
+        },
 
+        computed: {
+            isInvalid () {
+                return this.body.length < 10;
+            }
         }
     }
 
