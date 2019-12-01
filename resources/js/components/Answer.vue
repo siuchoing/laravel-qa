@@ -12,11 +12,21 @@
                 bodyHtml: this.answer.body_html,
                 id: this.answer.id,
                 questionId: this.answer.question_id,
-                beforeEditCache: null
+                beforeEditCache: null,
             }
         },
 
         methods: {
+            edit () {
+                // store value before edit
+                this.beforeEditCache: this.body;
+                this.editing = true;
+            },
+
+            cancel () {
+                this.body: this.beforeEditCache;
+                this.editing = false;
+            },
 
             // php artisan route:list --name="questions.answers.update"
             // you will get URL: questions/{question}/answers/{answer}

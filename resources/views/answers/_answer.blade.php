@@ -9,7 +9,7 @@
                     <textarea rows="10" v-model="body" class="form-control"></textarea>
                 </div>
                 <button class="btn btn-primary" type="submit">Update</button>
-                <button class="btn btn-outline-secondary" type="button" @click.prevent="editing = false">Cancel</button>
+                <button class="btn btn-outline-secondary" type="button" @click.prevent="cancel">Cancel</button>
             </form>
             <div v-else>
                <div v-html="bodyHtml"></div>
@@ -17,7 +17,7 @@
                     <div class="col-4">
                         <div class="ml-auto">
                             @can ('update', $answer)
-                                <a @click.prevent="editing = true" class="btn btn-sm btn-outline-info">Edit</a>
+                                <a @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
                             @endcan
                             @can ('delete', $answer)
                                 <form class="form-delete" method="post" action="{{ route('questions.answers.destroy', [$question->id, $answer->id]) }}">
