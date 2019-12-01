@@ -1,10 +1,7 @@
-<template>
-
-</template>
-
 <script>
     export default {
         props: ['answer'],
+
         data() {
             return {
                 editing: false,
@@ -17,6 +14,7 @@
         },
 
         methods: {
+
             edit () {
                 // store value before edit
                 this.beforeEditCache = this.body;
@@ -31,7 +29,6 @@
             // php artisan route:list --name="questions.answers.update"
             // you will get URL: questions/{question}/answers/{answer}
             update() {
-                console.log('123');
                 axios.patch(`/questions/${this.questionId}/answers/${this.id}`, {
                     body: this.body
                 })
@@ -55,7 +52,3 @@
     }
 
 </script>
-
-<style scoped>
-
-</style>
