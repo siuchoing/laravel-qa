@@ -25,10 +25,10 @@
                 axios.patch(`/questions/${this.questionId}/answers/${this.id}`, {
                     body: this.body
                 })
-                .then(res => {
-                    console.log(res);
+                .then(res => {      // return reponseObject
                     this.editing = false;
                     this.bodyHtml = res.data.body_html;
+                    alert(res.data.message)
                 })
                 .catch(err => {
                     console.log("Something went wrong.");

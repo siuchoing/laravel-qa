@@ -52,9 +52,7 @@ class AnswersController extends Controller
         if($request->expectsJson()) {
             return response()->json([
                 'message' => 'You answer has been updated',
-                //'body_html' => $answer->body_html,
-                'body_html'
-
+                'body_html' => $answer->body_html,
             ]);
         }
 
