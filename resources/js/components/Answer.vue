@@ -29,7 +29,7 @@
             // php artisan route:list --name="questions.answers.update"
             // you will get URL: questions/{question}/answers/{answer}
             update() {
-                axios.patch(`/questions/${this.questionId}/answers/${this.id}`, {
+                axios.patch(this.endpoint, {
                     body: this.body
                 })
                 .then(res => {      // return reponseObject
@@ -42,12 +42,29 @@
                     alert(err.response.data.message);
                 });
             },
+
+            destroy () {
+                if (confirm('Are you sure?')) {
+                    axios.delete(this.endpoint)
+                        .then(res => {
+                            // fadeOut($running_time, $action_after_running)
+                            $(this.$el).fadeOut(500, () =>{
+                                alert(res.data.message);
+                            })
+                        })
+                }
+
+            }
         },
 
         computed: {
             isInvalid () {
                 return this.body.length < 10;
-            }
+            },
+
+            endpoint () {
+                return `/questions/${this.questionId}/answers/${this.id}`;
+            },
         }
     }
 
