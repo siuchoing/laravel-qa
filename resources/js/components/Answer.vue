@@ -19,12 +19,12 @@
         methods: {
             edit () {
                 // store value before edit
-                this.beforeEditCache: this.body;
+                this.beforeEditCache = this.body;
                 this.editing = true;
             },
 
             cancel () {
-                this.body: this.beforeEditCache;
+                this.body = this.beforeEditCache;
                 this.editing = false;
             },
 
