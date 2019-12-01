@@ -35,11 +35,13 @@
                 .then(res => {      // return reponseObject
                     this.editing = false;
                     this.bodyHtml = res.data.body_html;
-                    alert(res.data.message)
+                    //alert('sad');
+                    this.$toast.success(res.data.message, "Success", { timeout: 3000 });
                 })
                 .catch(err => {
                     // console.log(error.response.data.errors.body[0]);
-                    alert(err.response.data.message);
+                    this.$toast.error(err.response.data.message, "Error", { timeout: 3000 });
+                    //alert(err.response.data.message);
                 });
             },
 
@@ -49,7 +51,7 @@
                         .then(res => {
                             // fadeOut($running_time, $action_after_running)
                             $(this.$el).fadeOut(500, () =>{
-                                alert(res.data.message);
+                                this.$toast.error(res.data.message, "Success", { timeout: 3000 });
                             })
                         })
                 }
