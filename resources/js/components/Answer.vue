@@ -47,7 +47,7 @@
 
             destroy () {
                 // Move code for Question Methods from "https://izitoast.marcelodolza.com/#Start"
-                iziToast.question({
+                this.$toast.question('Are you sure about that?', "Confirm", {
                     timeout: 20000,
                     close: false,
                     overlay: true,
@@ -55,10 +55,17 @@
                     id: 'question',
                     zindex: 999,
                     title: 'Hey',
-                    message: 'Are you sure about that?',
                     position: 'center',
                     buttons: [
                         ['<button><b>YES</b></button>', function (instance, toast) {
+
+                            axios.delete(this.endpoint)
+                                .then(res => {
+                                    // fadeOut($running_time, $action_after_running)
+                                    $(this.$el).fadeOut(500, () =>{
+                                        this.$toast.error(res.data.message, "Success", { timeout: 3000 });
+                                    })
+                                });
 
                             instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
 
@@ -76,18 +83,7 @@
                         console.info('Closed | closedBy: ' + closedBy);
                     }
                 });
-
-                if (confirm('Are you sure?')) {
-                    axios.delete(this.endpoint)
-                        .then(res => {
-                            // fadeOut($running_time, $action_after_running)
-                            $(this.$el).fadeOut(500, () =>{
-                                this.$toast.error(res.data.message, "Success", { timeout: 3000 });
-                            })
-                        })
-                }
-
-            }
+            },
         },
 
         computed: {
