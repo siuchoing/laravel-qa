@@ -1,5 +1,5 @@
 @if ($answersCount > 0)
-    <div class="row mt-4">
+<div class="row mt-4" v-cloak>  {{-- using v-cloak to prevent flash issue --}}
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
