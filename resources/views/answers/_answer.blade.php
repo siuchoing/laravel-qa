@@ -4,12 +4,15 @@
             'model' => $answer
         ])
         <div class="media-body">
-            <form v-if="editing">
-                Edit answer form
+            <form v-if="editing @submit.prevent="update">
+                <div class="form-group">
+                    <textarea rows="10" v-model="body" class="form-control"></textarea>
+                </div>
                 <button @CLICK="editing = false">Update</button>
+                <button @CLICK="editing = false">Cancel</button>
             </form>
             <div v-else>
-                {!! $answer->body_html !!}
+               <div v-html="bodyHtml"></div>
                 <div class="row">
                     <div class="col-4">
                         <div class="ml-auto">
