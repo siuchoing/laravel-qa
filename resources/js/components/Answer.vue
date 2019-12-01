@@ -57,7 +57,7 @@
                     title: 'Hey',
                     position: 'center',
                     buttons: [
-                        ['<button><b>YES</b></button>', function (instance, toast) {
+                        ['<button><b>YES</b></button>', (instance, toast) => {
 
                             axios.delete(this.endpoint)
                                 .then(res => {
