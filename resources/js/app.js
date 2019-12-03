@@ -31,8 +31,8 @@ Vue.use(Authorization);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // only call inside component
-//Vue.component('accept', require('./components/Accept.vue').default);
-//Vue.component('favorite', require('./components/Favorite.vue').default);
+Vue.component('accept', require('./components/Accept.vue').default);
+Vue.component('favorite', require('./components/Favorite.vue').default);
 
 //Vue.component('answer', require('./components/Answer.vue').default);        // default for ES6
 Vue.component('user-info', require('./components/UserInfo.vue').default);
