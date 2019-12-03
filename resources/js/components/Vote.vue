@@ -62,7 +62,7 @@
 
             _vote (vote) {
                 if (! this.signedIn) {
-                    this.$toast.warnging(`Please login to vote the ${this.name}`, "Warning", {
+                    this.$toast.warning(`Please login to vote the ${this.name}`, "Warning", {
                         timeout: 3000,
                         position: 'bottomLeft',
                     });
