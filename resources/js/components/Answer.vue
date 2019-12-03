@@ -95,6 +95,7 @@
                                     $(this.$el).fadeOut(500, () =>{
                                         this.$toast.error(res.data.message, "Success", { timeout: 3000 });
                                     })
+                                    //this.$emit('deleted')
                                 });
 
                             instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
