@@ -31,9 +31,6 @@
             }
         },
 
-        // created () {
-        //     this.fetch(`/questions/${this.questionId}/answers`);
-        // },
 
         methods: {
             fetch (endpoint) {
@@ -45,6 +42,9 @@
                     })
             }
         },
+    created () {
+        this.fetch(`/questions/${this.questionId}/answers`);
+    },
 
         computed: {
             title () {
