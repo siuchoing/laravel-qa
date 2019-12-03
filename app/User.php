@@ -53,7 +53,7 @@ class User extends Authenticatable
         return '#';
     }
 
-    public function answers_count()
+    public function answers()
     {
         return $this->hasMany(Answer::class);
     }
@@ -66,15 +66,14 @@ class User extends Authenticatable
         $email = $this->email;
         $hash = md5( strtolower( trim( $email ) ) );
         $size = 32;
-        $url = "https://www.gravatar.com/avatar/" . $hash . "&s=" . $size;
-        return $url;
 
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
     }
 
     public function favorites()
     {
         //return $this->belongsToMany(Question::class, 'favorites'); //, 'user_id', 'question_id');
-        return $this->belongsToMany(Question::class, 'favorites'); //, 'user_id', 'question_id')->withTimestamps()
+        return $this->belongsToMany(Question::class, 'favorites')->withTimestamps(); //, 'author_id', 'question_id');
     }
 
     public function voteQuestions()

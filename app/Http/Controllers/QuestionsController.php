@@ -87,9 +87,8 @@ class QuestionsController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
-        if (\Gate::denies('update-question', $question)) {
-            abort(403, "Access denied");
-        }
+        $this->authorize("update", $question);
+
         $question->update($request->only('title', 'body'));
         return redirect('/questions')->with('success', "Your question has beem updated.");
     }
@@ -102,7 +101,7 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        $this->authorize("update", $question);
+        $this->authorize("delete", $question);
 
         $question->delete();
 
