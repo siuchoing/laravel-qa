@@ -37,7 +37,7 @@
                                 <div class="col-4">
                                     <div class="ml-auto">
                                         <a v-if="authorize('modify', question)" @click.prevent="edit" class="btn btn-sm btn-outline-info">Edit</a>
-                                        <button v-if="authorize('delete', question)" @click="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
+                                        <button v-if="authorize('deleteQuestion', question)" @click="destroy" class="btn btn-sm btn-outline-danger">Delete</button>
                                     </div>
                                 </div>
                                 <div class="col-4"></div>
@@ -56,10 +56,12 @@
 <script>
     import Vote from './Vote.vue';
     import UserInfo from './UserInfo.vue';
+
     export default {
         props: ['question'],
 
         components: { Vote, UserInfo },
+
         data () {
             return {
                 title: this.question.title,

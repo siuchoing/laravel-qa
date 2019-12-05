@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container">
-        <question :question="{{ $question }}"></question>
-        <answers :question="{{ $question }}"></answers>
+        <question-page :question="{{ $question }}"></question-page>
     </div>
 @endsection
