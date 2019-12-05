@@ -27,7 +27,7 @@
         },
 
         created () {
-            EventBus.$('accepted', id => {
+            EventBus.$on('accepted', id => {
                 this.isBest = (id === this.id);
             })
         },
