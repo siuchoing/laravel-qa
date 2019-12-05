@@ -33,7 +33,7 @@
         },
 
         methods: {
-            created () {
+            create () {
                 axios.post(`/answers/${this.id}/accept`)
                     .then(res => {
                         this.$toast.success(res.data.message, "Success", {
