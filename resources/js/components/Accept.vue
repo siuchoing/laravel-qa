@@ -27,13 +27,13 @@
         },
 
         created () {
-            EventBus.$('accepted', id => {
+            EventBus.$on('accepted', id => {
                 this.isBest = (id === this.id);
             })
         },
 
         methods: {
-            create () {
+            created () {
                 axios.post(`/answers/${this.id}/accept`)
                     .then(res => {
                         this.$toast.success(res.data.message, "Success", {
