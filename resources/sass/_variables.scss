@@ -1,5 +1,8 @@
 // Body
-$body-bg: #f8fafc;
+//$body-bg: #f8fafc;
+
+// Nav Tab, which set $body-bg as default color in node_modules/bootstrap/scss/_variable.scss
+$body-bg: #fff;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
