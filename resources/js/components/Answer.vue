@@ -51,7 +51,6 @@
         },
 
         methods: {
-p
             setEditCache () {  // store value before edit
                 this.beforeEditCache = this.body;
             },
