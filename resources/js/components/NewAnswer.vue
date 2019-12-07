@@ -28,7 +28,7 @@
 
         methods: {
             create() {
-                axios.post(`/questions/${this.questionId}`/answers, {
+                axios.post(`/questions/${this.questionId}/answers`, {
                     body: this.body
                 })
                 .catch (error => {
