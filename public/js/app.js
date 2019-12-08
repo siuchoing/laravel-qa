@@ -2501,8 +2501,8 @@ __webpack_require__.r(__webpack_exports__);
 // method 1: To change in prism.css, and then recompile the code
 // we are using method 2: copy all these theme to a public directory, and reference the theme in layout.
 
-var md = new markdown_it__WEBPACK_IMPORTED_MODULE_0__["MarkdownIt"]();
-md.use(markdown_it_prism__WEBPACK_IMPORTED_MODULE_1__["prism"]);
+var md = new markdown_it__WEBPACK_IMPORTED_MODULE_0___default.a();
+md.use(markdown_it_prism__WEBPACK_IMPORTED_MODULE_1___default.a);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['body', 'name'],
   // methods: {
@@ -2525,7 +2525,7 @@ md.use(markdown_it_prism__WEBPACK_IMPORTED_MODULE_1__["prism"]);
   mounted: function mounted() {
     // remove scroll bar in write tab for edit, and replace this line with auto size and pass the text area in from a NodeList
     //autosize(document.querySelectorAll('textarea'));
-    Object(autosize__WEBPACK_IMPORTED_MODULE_2__["autosize"])(this.$el.querySelectorAll('textarea')); //console.log('mounted hook');
+    autosize__WEBPACK_IMPORTED_MODULE_2___default()(this.$el.querySelectorAll('textarea')); //console.log('mounted hook');
   },
   // This updated life cycle hook executed after data changes in our component and a DOM re-render
   updated: function updated() {//console.log('updated hook');
