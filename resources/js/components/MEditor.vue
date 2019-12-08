@@ -31,6 +31,19 @@
             preview () {
                 return md.render(this.body);
             }
+        },
+
+        watch: {
+            body () {
+                console.log('watch body');
+                // from a NodeList
+                //autosize(document.querySelectorAll('textarea'));
+            }
+        },
+
+        // This updated life cycle hook executed after data changes in our component and a DOM re-render
+        updated () {
+            console.log('updated hook');
         }
     }
 </script>
