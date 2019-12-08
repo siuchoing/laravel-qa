@@ -23,10 +23,10 @@
     import MarkdownIt from 'markdown-it';
     import prism from 'markdown-it-prism';
     import autosize from 'autosize';
-    import 'prismjs/themes/prism.css';
+    // import 'prismjs/themes/prism.css';
     // if switch to another theme
     // method 1: To change in prism.css, and then recompile the code
-    // method 2: copy all these theme to a public directory, and reference the theme in layout.
+    // we are using method 2: copy all these theme to a public directory, and reference the theme in layout.
 
     const md = new MarkdownIt();
     md.use(prism);
