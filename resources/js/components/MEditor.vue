@@ -14,13 +14,23 @@
             <div class="tab-pane active" id="write"> <!-- id need to be same as href -->
                 <slot></slot>   <!-- Parent component to child component -->
             </div>
-            <div class="tab-pane" id="preview">Preview...</div>
+            <div class="tab-pane" v-html="preview" id="preview"></div>
         </div>
     </div>
 </template>
 
 <script>
+    import MarkdownIt from 'markdown-it';
+    const md = new MarkdownIt();
+
     export default {
-        props: ['body']
+        props: ['body'],
+
+        computed: {
+            // render raw markdown into html, and then pass the body in
+            preview () {
+                return md.render(this.body);
+            }
+        }
     }
 </script>
