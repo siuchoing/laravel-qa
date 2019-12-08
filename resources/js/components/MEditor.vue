@@ -21,12 +21,24 @@
 
 <script>
     import MarkdownIt from 'markdown-it';
+    import prism from 'markdown-it-prism';
     import autosize from 'autosize';
+    import 'prismjs/themes/prism.css';
+    // if switch to another theme
+    // method 1: To change in prism.css, and then recompile the code
+    // method 2: copy all these theme to a public directory, and reference the theme in layout.
 
     const md = new MarkdownIt();
+    md.use(prism);
 
     export default {
-        props: ['body'],
+        props: ['body', 'name'],
+
+        // methods: {
+        //     tabId (tabName, hash = '') {
+        //         return `${hash}${tabName}${this.name}`;
+        //     }
+        // },
 
         computed: {
             // render raw markdown into html, and then pass the body in
@@ -37,7 +49,7 @@
 
         watch: {
             body () {
-                console.log('watch body');
+                //console.log('watch body');
                 // from a NodeList
                 //autosize(document.querySelectorAll('textarea'));
             }
@@ -47,13 +59,12 @@
             // remove scroll bar in write tab for edit, and replace this line with auto size and pass the text area in from a NodeList
             //autosize(document.querySelectorAll('textarea'));
             autosize(this.$el.querySelectorAll('textarea'));
-            console.log('mounted hook');
+            //console.log('mounted hook');
         },
 
         // This updated life cycle hook executed after data changes in our component and a DOM re-render
         updated () {
-            console.log('updated hook');
-            autosize(this.$el.querySelectorAll('textarea'));
+            //console.log('updated hook');
         }
     }
 </script>
