@@ -37346,8 +37346,12 @@ function loadPrismLang(lang) {
   let langObject = _prismjs.default.languages[lang];
 
   if (langObject === undefined) {
-    (0, _components.default)([lang]);
-    langObject = _prismjs.default.languages[lang];
+      try {
+          __webpack_require__(489)("./prism-" + lang);
+
+          return _prismjs.default.languages[lang];
+      } catch (e) {// nothing to do
+      }
   }
 
   return langObject;
