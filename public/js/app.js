@@ -2526,11 +2526,11 @@ md.use(markdown_it_prism__WEBPACK_IMPORTED_MODULE_1___default.a);
   },
   mounted: function mounted() {
     // remove scroll bar in write tab for edit, and replace this line with auto size and pass the text area in from a NodeList
-    autosize__WEBPACK_IMPORTED_MODULE_2___default()(document.querySelectorAll('textarea')); //console.log('mounted hook');
+    //autosize(document.querySelectorAll('textarea'));
+    autosize__WEBPACK_IMPORTED_MODULE_2___default()(this.$el.querySelectorAll('textarea')); //console.log('mounted hook');
   },
   // This updated life cycle hook executed after data changes in our component and a DOM re-render
-  updated: function updated() {
-    autosize__WEBPACK_IMPORTED_MODULE_2___default()(document.querySelectorAll('textarea'));
+  updated: function updated() {//console.log('updated hook');
   }
 });
 
@@ -67809,14 +67809,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************!*\
   !*** ./resources/js/components/Question.vue ***!
   \**********************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Question_vue_vue_type_template_id_0fecee51___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Question.vue?vue&type=template&id=0fecee51& */ "./resources/js/components/Question.vue?vue&type=template&id=0fecee51&");
 /* harmony import */ var _Question_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Question.vue?vue&type=script&lang=js& */ "./resources/js/components/Question.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Question_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Question_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -67846,7 +67847,7 @@ component.options.__file = "resources/js/components/Question.vue"
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Question.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
