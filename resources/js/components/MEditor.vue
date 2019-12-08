@@ -21,6 +21,8 @@
 
 <script>
     import MarkdownIt from 'markdown-it';
+    import autosize from 'autosize';
+
     const md = new MarkdownIt();
 
     export default {
@@ -41,9 +43,17 @@
             }
         },
 
+        mounted () {
+            // remove scroll bar in write tab for edit, and replace this line with auto size and pass the text area in from a NodeList
+            //autosize(document.querySelectorAll('textarea'));
+            autosize(this.$el.querySelectorAll('textarea'));
+            console.log('mounted hook');
+        },
+
         // This updated life cycle hook executed after data changes in our component and a DOM re-render
         updated () {
             console.log('updated hook');
+            autosize(this.$el.querySelectorAll('textarea'));
         }
     }
 </script>
