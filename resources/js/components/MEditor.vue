@@ -28,8 +28,12 @@
     // method 1: To change in prism.css, and then recompile the code
     // we are using method 2: copy all these theme to a public directory, and reference the theme in layout.
 
-    const md = new MarkdownIt();
-    md.use(prism);
+    // enable everything
+    var md = require('markdown-it')({
+        html: true,
+        linkify: true,
+        typographer: true
+    });
 
     export default {
         props: ['body', 'name'],
