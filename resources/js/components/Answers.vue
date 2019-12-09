@@ -44,7 +44,9 @@
             add (answer) {
                 this.answers.push(answer);
                 this.count++;
-                this.highlight();
+                this.$nextTick(() => {
+                    this.highlight(`answer-${answer.id}`);
+                })
             },
 
             remove (index) {
