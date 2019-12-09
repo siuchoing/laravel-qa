@@ -31,16 +31,12 @@
 </template>
 
 <script>
-    import Vote from './Vote.vue';
-    import UserInfo from './UserInfo.vue';
     import modification from '../mixins/modification';
 
     export default {
         props: ['answer'],
 
         mixins: [modification],
-
-        components: { Vote, UserInfo },
 
         data() {
             return {
