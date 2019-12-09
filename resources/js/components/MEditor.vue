@@ -34,12 +34,6 @@
     export default {
         props: ['body', 'name'],
 
-        // methods: {
-        //     tabId (tabName, hash = '') {
-        //         return `${hash}${tabName}${this.name}`;
-        //     }
-        // },
-
         computed: {
             // render raw markdown into html, and then pass the body in
             preview () {
@@ -47,24 +41,8 @@
             }
         },
 
-        watch: {
-            body () {
-                //console.log('watch body');
-                // from a NodeList
-                //autosize(document.querySelectorAll('textarea'));
-            }
-        },
-
         mounted () {
-            // remove scroll bar in write tab for edit, and replace this line with auto size and pass the text area in from a NodeList
-            //autosize(document.querySelectorAll('textarea'));
-            autosize(this.$el.querySelectorAll('textarea'));
-            //console.log('mounted hook');
+            //autosize(this.$el.querySelectorAll('textarea'));
         },
-
-        // This updated life cycle hook executed after data changes in our component and a DOM re-render
-        updated () {
-            //console.log('updated hook');
-        }
     }
 </script>
