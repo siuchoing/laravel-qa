@@ -24,8 +24,11 @@
     import prism from 'markdown-it-prism';
     import autosize from 'autosize';
 
-    const md = new MarkdownIt();
-    md.use(prism);
+    var md = require('markdown-it')({
+        html: true,
+        linkify: true,
+        typographer: true
+    });
 
     export default {
         props: ['body', 'name'],
