@@ -67,7 +67,7 @@
                     })
                     .then(() => {
                         this.answerIds.forEach(id => {
-                            this.highlight(`answe-${id}`);
+                            this.highlight(`answer-${id}`);
                         })
                     })
             }
