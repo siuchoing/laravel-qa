@@ -13,13 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-// routes/api.php
-Route::middleware(['auth:api'])->group(function() {
-    Route::apiResource('/questions', 'Api\QuestionsController')->except('index');
-});
+/*------------------- Auth -----------------------*/
 Route::post('/token', 'Auth\LoginCOntroller@getToken');
-Route::get('/questions', 'Api\QuestionsController@index');
 
+/*------------------- User -----------------------*/
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*------------------- Question -----------------------*/
+Route::get('/questions/{slug}', 'Api\QuestionDetailsController');
+Route::get('/questions', 'Api\QuestionsController@index');
+Route::middleware(['auth:api'])->group(function() {
+    Route::apiResource('/questions', 'Api\QuestionsController')->except('index');
+});
+
+
+
+
+
