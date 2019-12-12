@@ -81,6 +81,12 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $this->authorize("delete", $question);
+
+        $question->delete();
+
+        return response()->json([
+            'message' => "Your question has been deleted."
+        ]);
     }
 }
