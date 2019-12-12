@@ -22,7 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /*------------------- Question -----------------------*/
-Route::get('/questions/{slug}', 'Api\QuestionDetailsController');
+Route::get('/questions/{question}-{slug}', 'Api\QuestionDetailsController');
 Route::get('/questions', 'Api\QuestionsController@index');
 Route::middleware(['auth:api'])->group(function() {
     Route::apiResource('/questions', 'Api\QuestionsController')->except('index');
