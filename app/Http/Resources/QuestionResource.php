@@ -26,7 +26,7 @@ class QuestionResource extends JsonResource
             'status' => $this->status,
             'excerpt' => $this->excerpt,
             'created_date' => $this->created_date,
-            'user' => $this->user,
+            'user' => new UserResource($this->user),
         ];
     }
 }
