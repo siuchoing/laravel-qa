@@ -63,7 +63,14 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $this->authorize("update", $question);
+
+        $question->update($request->only('title', 'body'));
+
+        return response()->json([
+            'message' => "Your question has been updated.",
+            'body_html' => $question->body_html
+        ]);
     }
 
     /**
