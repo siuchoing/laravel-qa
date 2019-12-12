@@ -18,9 +18,7 @@ class QuestionsController extends Controller
     public function index()
     {
         $questions = Question::with('user')->latest()->paginate(5);
-        //return $questions;
-        // Apply QuestionResource to get the return data
-        //
+
         return QuestionResource::collection($questions);
     }
 
@@ -30,10 +28,16 @@ class QuestionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AskQuestionRequest $request)
     {
-        //
+        $question = $request->user()->questions()->create($request->only('title', 'body'));
+
+        return response()->json([
+            'message' => "Your question has been submitted",
+            'question' => new QuestionResource($question)
+        ]);
     }
+
 
     /**
      * Display the specified resource.
