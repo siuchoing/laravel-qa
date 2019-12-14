@@ -28,6 +28,7 @@ Route::get('/questions/{question}/answers', 'Api\AnswersController@index');
 Route::middleware(['auth:api'])->group(function() {
     Route::apiResource('/questions', 'Api\QuestionsController')->except('index');
     Route::apiResource('/questions.answers', 'Api\AnswersController')->except('index');
+    Route::post('/questions/{question}/vote', 'Api\VoteQuestionController');
 });
 
 
