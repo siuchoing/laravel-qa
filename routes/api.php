@@ -27,6 +27,8 @@ Route::get('/questions', 'Api\QuestionsController@index');
 Route::middleware(['auth:api'])->group(function() {
     Route::apiResource('/questions', 'Api\QuestionsController')->except('index');
     Route::post('/questions/{question}/vote', 'Api\VoteQuestionController');
+    Route::post('/questions/{question}/favorites', 'Api\FavoritesController@store');
+    Route::delete('/questions/{question}/favorites', 'Api\FavoritesController@destroy');
 });
 
 /*------------------- Answer -----------------------*/
