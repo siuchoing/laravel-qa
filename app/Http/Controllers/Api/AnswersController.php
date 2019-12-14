@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Answer;
 use App\Question;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\AnswerResource;
 use Illuminate\Http\Request;
 
 class AnswersController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except('index');
-    }
     public function index(Question $question)
     {
-        return $question->answers()->with('user')->simplePaginate(3);
+        $answers = $question->answers()->with('user')->simplePaginate(3);
+
+        return AnswerResource::collection($answers);
     }
 
     /**
@@ -30,28 +30,13 @@ class AnswersController extends Controller
                 'body' => 'required'
             ]) + ['user_id' => \Auth::id()]);
 
-        if($request->expectsJson())
-        {
-            return response()->json([
-                'message' => 'Your answer has been submitted successfully',
-                //'answer' => Answer::with('user')->find($answer->id),
-                'answer' => $answer->load('user')
-            ]);
-        }
-        return back()->with('success', "Your answer has been submitted successfully");
+        return response()->json([
+            'message' => 'Your answer has been submitted successfully',
+            //'answer' => Answer::with('user')->find($answer->id),
+            'answer' => new AnswerResource($answer->load('user'))
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Question $question, Answer $answer)
-    {
-        $this->authorize('update', $answer);
-        return view('answers.edit', compact('question', 'answer'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -67,14 +52,10 @@ class AnswersController extends Controller
             'body' => 'required',
         ]));
 
-        if($request->expectsJson()) {
-            return response()->json([
-                'message' => 'You answer has been updated',
-                'body_html' => $answer->body_html,
-            ]);
-        }
-
-        return redirect()->route('questions.show', $question->slug)->with('success', 'You answer has been updated');
+        return response()->json([
+            'message' => 'You answer has been updated',
+            'body_html' => $answer->body_html,
+        ]);
     }
 
     /**
@@ -89,13 +70,8 @@ class AnswersController extends Controller
 
         $answer->delete();
 
-        if (request()->expectsJson())
-        {
-            return response()->json([
-                'message' => "Your answer has been removed"
-            ]);
-        }
-
-        return back()->with('success', "Your answer has been removed.");
+        return response()->json([
+            'message' => "Your answer has been removed"
+        ]);
     }
 }
