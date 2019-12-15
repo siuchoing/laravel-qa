@@ -11,9 +11,10 @@
 |
 */
 
+// return all view to 'spa' view,
+Route::view('/{any}', 'spa')->where('any', '.*');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 /*------------------- Question -----------------------*/
