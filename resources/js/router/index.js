@@ -19,7 +19,7 @@ router.beforeEach((to, from, next) => {
     if (to.matched.some(r => r.meta.requiresAuth) && !window.Auth.signedIn) {
 
         // redirect to the actual laravel login page by using vanilla javascript
-        window.location = window.Auth.url
+        window.location = window.Urls.login
         return
     }
     // move on to the next hook.
