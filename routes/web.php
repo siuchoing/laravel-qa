@@ -12,7 +12,7 @@
 */
 
 /*------------------- Auth -----------------------*/
-Auth::routes();
+Auth::routes(['verify' => true]);    // Email Verification Routes by passing the verify option to the Auth::routes method
 
 /*------------------- Single Page -----------------------*/
 Route::view('/{any}', 'spa')->where('any', '.*');   // return all view to 'spa' view,
