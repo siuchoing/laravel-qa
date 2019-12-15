@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 
 /*-------------- api --------------*/
 Route::post('/login', 'Api\Auth\LoginController@store');
+Route::delete('/logout', 'Api\Auth\LoginController@destroy')->middleware('auth:api');
 
 /*------------------- User -----------------------*/
 Route::middleware('auth:api')->get('/user', function (Request $request) {

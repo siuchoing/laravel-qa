@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 class LoginController extends Controller
 {
+    // For login endpoint
     public function store(Request $request)
     {
         $request->validate([
@@ -30,6 +31,7 @@ class LoginController extends Controller
         return $response;
     }
 
+    // For logout endpoint
     public function destroy(Request $request)
     {
         $request->user()->token()->revoke();
