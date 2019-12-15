@@ -11,10 +11,13 @@
 |
 */
 
-// return all view to 'spa' view,
-Route::view('/{any}', 'spa')->where('any', '.*');
-
+/*------------------- Auth -----------------------*/
 Auth::routes();
+
+/*------------------- Single Page -----------------------*/
+Route::view('/{any}', 'spa')->where('any', '.*');   // return all view to 'spa' view,
+
+/*------------------- Home -----------------------*/
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 /*------------------- Question -----------------------*/
@@ -25,11 +28,11 @@ Route::post('/questions/{question}/favorites', 'FavoritesController@store')->nam
 Route::delete('/questions/{question}/favorites', 'FavoritesController@destroy')->name('questions.unfavorite');
 Route::post('/questions/{question}/vote', 'VoteQuestionController');
 
-//Route::get('/lesson-5/questions', 'QuestionsController@index_lesson5');
-
 /*------------------- Answer -------------------------*/
 //Route::post('/questions/{question}/answers', 'AnswersController@store')->name('answers.store');
 Route::resource('questions.answers', 'AnswersController')->except(['create', 'show']);
 Route::post('/answers/{answer}/accept', 'AcceptAnswerController')->name('answers.accept');
 Route::post('/answers/{answer}/vote', 'VoteAnswerController');
 
+/*------------------- Exercise -------------------------*/
+//Route::get('/lesson-5/questions', 'QuestionsController@index_lesson5');
