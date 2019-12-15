@@ -14,7 +14,10 @@ use Illuminate\Http\Request;
 */
 
 /*------------------- Auth -----------------------*/
-Route::post('/token', 'Auth\LoginCOntroller@getToken');
+//Route::post('/token', 'Auth\LoginCOntroller@getToken');
+
+/*-------------- api --------------*/
+Route::post('/login', 'Api\Auth\LoginController@store');
 
 /*------------------- User -----------------------*/
 Route::middleware('auth:api')->get('/user', function (Request $request) {
