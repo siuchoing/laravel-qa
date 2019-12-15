@@ -22,6 +22,9 @@ class FavoritesController extends Controller
     {
         $question->favorites()->detach(auth()->id());
 
-        return response()->json(null, 204); // 204 status for successfully fulfilled the request
+        return response()->json([
+            'message' => 'Your favorite answer has been removed successfully',
+            'status' => 204
+        ]);
     }
 }
