@@ -2,37 +2,54 @@
     <div class="media post">
         <div class="d-flex flex-column counters">
             <div class="vote">
-                <strong>{{ $question->votes_count }}</strong> {{ str_plural('vote', $question->votes_count) }}
+                <strong>{{ question.votes_count }}</strong> {{ str_plural('vote', question.votes_count) }}
             </div>
-            <div class="status {{ $question->status }}">
-                <strong>{{ $question->answers_count }}</strong> {{ str_plural('answer', $question->answers_count) }}
+            <div :class="statusClasses">
+                <strong>{{ question.answers_count }}</strong> {{ str_plural('answer', question.answers_count) }}
             </div>
             <div class="view">
-                {{ $question->views . " " . str_plural('view', $question->views) }}
+                {{ question.views + " " + str_plural('view', question.views) }}
             </div>
         </div>
         <div class="media-body">
             <div class="d-flex align-items-center">
-                <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
+                <h3 class="mt-0"><a href="#">{{ question.title }}</a></h3>
                 <div class="ml-auto">
-                    @can('update', $question)
-                    <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Edit</a>
-                    @endcan
-                    @can('delete', $question)
-                    <form class="form-delete" method="post" action="{{ route('questions.destroy', $question->id) }}">
-                        @method('DELETE')    {{--    {{ method_firld('DELETE') }}    --}}
-                        @csrf                {{--    {{ csrf_token() }}    --}}
+                    <a href="#" v-if="authorize('modify', question)" class="btn btn-sm btn-outline-info">Edit</a>
+                    <form v-if="authorize('deleteQuestion', question)" class="form-delete" method="post" action="#">
+                        @method('DELETE')
+                        @csrf
                         <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure?')">Delete</button>
                     </form>
-                    @endcan
                 </div>
             </div>
             <p class="lead">
                 Asked by
-                <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
-                <small class="text-muted">{{ $question->created_date }}</small>
+                <a href="#">{{ question.user.name }}</a>
+                <small class="text-muted">{{ question.created_date }}</small>
             </p>
-            <div class="excerpt"> {{ $question->excerpt(350) }} </div>
+            <div class="excerpt"> {{ question.excerpt }} </div>
         </div>
     </div>
 </template>
+
+<script>
+    export default {
+        props: ['question'],
+
+        methods: {
+            str_plural (str, count) {
+                return str + (count > 1 ? 's' : '')
+            }
+        },
+
+        computed: {
+            statusClasses () {
+                return [
+                    'status',
+                    this.question.status
+                ]
+            }
+        }
+    }
+</script>

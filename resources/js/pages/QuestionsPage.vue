@@ -7,26 +7,39 @@
                         <div class="d-flex align-items-center">
                             <h2>All Questions</h2>
                             <div class="ml-auto">
-                                <a href="{{ route('questions.create') }}" class="btn btn-outline-secondary">Ask Question</a>
+                                <a href="#" class="btn btn-outline-secondary">Ask Question</a>
                             </div>
                         </div>
 
                     </div>
 
                     <div class="card-body">
-                        @include('layouts._messages')
-
-                        @forelse ($questions as $question)
-                        @include('questions._excerpt')
-                        @empty
-                        <div class="alert alert-warning">
+                        <div v-if="questions.length">
+                            <question-excerpt v-for="question in qusetions" :question="question" :key="question.id"></question-excerpt>
+                        </div>
+                        <div v-else class="alert alert-warning">
                             <strong>Sorry</strong> There are no questions available.
                         </div>
-                        @endforelse
-                        {{ $questions->links() }}
+
+                        <!-- pagination goes here -->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+    import QuestionExcerpt from "../components/QuestionExcerpt";
+
+    export default {
+        components: { QuestionExcerpt },
+
+        data () {
+            return {
+                questions: []
+            }
+        }
+    }
+</script>
