@@ -12,7 +12,10 @@ class FavoritesController extends Controller
     {
         $question->favorites()->attach(auth()->id());
 
-        return response()->json(null, 204); // 204 status for successfully fulfilled the request
+        return response()->json([
+            'message' => 'Your favorite answer has been updated successfully',
+            'status' => 204
+        ]);
     }
 
     public function destroy(Question $question)
