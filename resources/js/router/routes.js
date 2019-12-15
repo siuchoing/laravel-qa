@@ -17,6 +17,7 @@ const routes = [
         path: '/my-posts',
         component: MyPostsPage,
         name: 'my-posts',
+        // only login can access
         meta: {
             requiresAuth: true
         }

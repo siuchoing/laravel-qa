@@ -79,7 +79,8 @@
 <script>
     window.Auth = {!! json_encode([
             'signedIn' => Auth::check(),
-            'user' => Auth::user()        // you can hidden user() for security
+            'user' => Auth::user(),        // you can hidden user() for security
+            'url' => route('login')
         ]) !!}
 </script>
 <script src="{{ asset('js/app.js') }}" defer></script>
