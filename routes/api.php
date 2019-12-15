@@ -23,6 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /*------------------- Question -----------------------*/
 Route::get('/questions/{question}-{slug}', 'Api\QuestionDetailsController');
+
+/*-------------- api --------------*/
 Route::get('/questions', 'Api\QuestionsController@index');
 Route::middleware(['auth:api'])->group(function() {
     Route::apiResource('/questions', 'Api\QuestionsController')->except('index');
@@ -31,13 +33,16 @@ Route::middleware(['auth:api'])->group(function() {
     Route::delete('/questions/{question}/favorites', 'Api\FavoritesController@destroy');
 });
 
+
 /*------------------- Answer -----------------------*/
 Route::get('/questions/{question}/answers', 'Api\AnswersController@index');
+
+/*-------------- api --------------*/
 Route::middleware(['auth:api'])->group(function() {
     Route::apiResource('/questions.answers', 'Api\AnswersController')->except('index');
     Route::post('/answers/{answer}/vote', 'Api\VoteAnswerController');
     Route::post('/answers/{answer}/accept', 'Api\AcceptAnswerController');
-
-
 });
+
+
 
