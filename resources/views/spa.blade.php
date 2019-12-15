@@ -34,12 +34,8 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'questions' }">Question</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'my-posts' }">My Posts</router-link>
-                    </li>
+                    <router-link class="nav-item" tag="li" :to="{ name: 'questions' }"><a class="nav-link">Questions</a></router-link>
+                    <router-link class="nav-item" tag="li" :to="{ name: 'my-posts' }"><a class="nav-link">My Posts</a></router-link>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
