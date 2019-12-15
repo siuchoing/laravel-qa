@@ -71,8 +71,7 @@
     </nav>
 
     <main class="py-4">
-        {{--@yield('content')--}}
-        content goes here
+        <router-view></router-view>
     </main>
 </div>
 
