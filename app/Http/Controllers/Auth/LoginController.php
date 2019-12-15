@@ -46,20 +46,20 @@ class LoginController extends Controller
     //Client ID: 2
     //Client secret: ucH20VlC2OzW2SdAFEilrCLXO83IBPK1Fho8eWId
     ////////////////////////////////////////////////////////////
-    public function getToken(Request $request)
-    {
-        $request->request->add([
-            'grant_type' => 'password',
-            'client_id' => 2,
-            'client_secret' => 'ucH20VlC2OzW2SdAFEilrCLXO83IBPK1Fho8eWId',
-            'username' => $request->username,
-            'password' => $request->password,
-        ]);
-
-        // make sure APP_URL = http://localhost:8000 in .env
-        $requestToken = Request::create(env('APP_URL') . '/oauth/token', 'post');
-        $response = Route::dispatch($requestToken);
-
-        return $response;
-    }
+//    public function getToken(Request $request)
+//    {
+//        $request->request->add([
+//            'grant_type' => 'password',
+//            'client_id' => 2,
+//            'client_secret' => 'ucH20VlC2OzW2SdAFEilrCLXO83IBPK1Fho8eWId',
+//            'username' => $request->username,
+//            'password' => $request->password,
+//        ]);
+//
+//        // make sure APP_URL = http://localhost:8000 in .env
+//        $requestToken = Request::create(env('APP_URL') . '/oauth/token', 'post');
+//        $response = Route::dispatch($requestToken);
+//
+//        return $response;
+//    }
 }
