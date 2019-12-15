@@ -1,6 +1,7 @@
 import QuestionsPage from '../pages/QuestionsPage.vue'
 import QuestionPage from '../pages/QuestionPage.vue'
 import MyPostsPage from '../pages/MyPostsPage.vue'
+import NotFoundPage from '../pages/NotFoundPage.vue'
 
 const routes = [
     {
@@ -27,6 +28,10 @@ const routes = [
         component: QuestionPage,
         name: 'questions.show'
     },
+    {
+        path: '*',
+        component: NotFoundPage
+    }
 ]
 
 export default routes
