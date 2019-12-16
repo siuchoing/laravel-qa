@@ -15,9 +15,13 @@
 
 <script>
     import QuestionExcerpt from './QuestionExcerpt.vue'
+    import Pagination from './Pagination.vue'
 
     export default {
-        components: { QuestionExcerpt },
+        components: {
+            QuestionExcerpt,
+            Pagination
+        },
 
         data () {
             return {
