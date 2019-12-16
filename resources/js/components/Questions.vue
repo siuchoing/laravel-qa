@@ -38,14 +38,16 @@
         },
 
         methods: {
+            // Watch the route change
             fetchQuestions () {
-                axios.get('/questions')
+                axios.get('/questions', { params: this.$route.query })
                     .then(({ data }) => {
                         this.questions = data.data;
-                        this.meta = data.meta;
                         this.links = data.links;
-                    });
+                        this.meta = data.meta;
+                    })
             }
+        },
         }
     }
 </script>

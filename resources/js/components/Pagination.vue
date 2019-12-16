@@ -43,15 +43,18 @@
                     },
                 });
             },
-
-            // call the switchPage to actually switch the previous page
             prev () {
                 if (! this.isFirst) {
                     this.meta.current_page--;
                 }
                 this.switchPage();
+            },
+            next () {
+                if (! this.isLast) {
+                    this.meta.current_page++;
+                }
+                this.switchPage();
             }
         }
     }
-
 </script>
