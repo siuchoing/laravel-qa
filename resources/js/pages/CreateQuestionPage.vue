@@ -7,19 +7,24 @@
                         <div class="d-flex align-items-center">
                             <h2>Ask Question</h2>
                             <div class="ml-auto">
-                                <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary">Back to all Questions</a>
-                            </div>
+                                <router-link :to="{ name: 'questions' }" class="btn btn-outline-secondary">Back to all Questions</router-link>                            </div>
                         </div>
-
                     </div>
+                </div>
 
-                    <div class="card-body">
-                        <form action="{{ route('questions.store') }}" method="post">
-                            @include('questions._form', ['buttonText' => "Ask Question"])
-                        </form>
-                    </div>
+                <div class="card-body">
+                    <question-form></question-form>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+    import QuestionForm from "../components/QuestionForm";
+
+    export default {
+        components: { QuestionForm },
+
+    }
+</script>
