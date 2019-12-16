@@ -20,5 +20,12 @@
 <script>
     export default {
         props: ['meta', 'links']
-    }
+    },
+
+    computed: {
+        pagesInfo () {
+            return `Page ${this.meta.current_page} of ${this.meta.last_page}`
+        }
+    },
+
 </script>
