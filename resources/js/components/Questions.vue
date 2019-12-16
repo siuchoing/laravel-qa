@@ -48,6 +48,9 @@
                     })
             }
         },
+
+        watch: {
+            "$route": 'fetchQuestions'
         }
     }
 </script>
