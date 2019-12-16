@@ -5,9 +5,7 @@
         </div>
         <!-- 1st column -->
 
-        <div class="col text-center">
-            Page 1 of 5
-        </div>
+        <div class="col text-center">{{ pagesInfo }}</div>
         <!-- 2nd column -->
 
         <div class="col text-right">
@@ -19,13 +17,13 @@
 
 <script>
     export default {
-        props: ['meta', 'links']
-    },
+        props: ['meta', 'links'],
 
-    computed: {
-        pagesInfo () {
-            return `Page ${this.meta.current_page} of ${this.meta.last_page}`
+        computed: {
+            pagesInfo () {
+                return `Page ${this.meta.current_page} of ${this.meta.last_page}`
+            }
         }
-    },
+    }
 
 </script>
