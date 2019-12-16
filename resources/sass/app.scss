@@ -25,7 +25,7 @@ $fa-font-path: "../webfonts";
 
 // Edit Background Color
 body {
-    background: $cyan;
+    background: #f8fafc;
 }
 
 .navbar-laravel {
@@ -124,4 +124,8 @@ form.form-delete {
 
 [v-cloak] {
     display: none;
+}
+
+.card-body {
+    background: #fff;
 }

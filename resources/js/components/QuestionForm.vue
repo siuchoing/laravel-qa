@@ -1,37 +1,57 @@
 <template>
-    <form @submit.prevent="handleSubmit">
+    <div>
         <div class="form-group">
             <label for="question-title">Question Title</label>
-            <input type="text" name="title" value="{{ old('title', $question->title) }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
+            <input type="text" name="title" v-model="title" :class="errorClass('title')">
 
-            @if ($errors->has('title'))
-            <div class="invalid-feedback">
-                <strong>{{ $errors->first('title') }}</strong>
+            <div v-if="errors['title'][0]" class="invalid-feedback">
+                <strong>{{ errors['title'][0] }}</strong>
             </div>
-            @endif
         </div>
         <div class="form-group">
             <label for="question-body">Explain you question</label>
-            <textarea name="body" id="question-body" rows="10" class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}">{{ old('body', $question->body) }}</textarea>
+            <textarea name="body" rows="10" v-model="body" :class="errorClass('body')"></textarea>
 
-            @if ($errors->has('body'))
-            <div class="invalid-feedback">
-                <strong>{{ $errors->first('body') }}</strong>
+            <div v-if="errors['body'][0]" class="invalid-feedback">
+                <strong>{{ errors['body'][0] }}</strong>
             </div>
-            @endif
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-outline-primary btn-lg">{{ $buttonText }}</button>
+            <button type="submit" class="btn btn-outline-primary btn-lg">{{ buttonText }}</button>
         </div>
-    </form>
+    </div>
 </template>
 
 <script>
     export default {
-        name: "QuestionForm.vue"
+        data () {
+            return {
+                title: '',
+                body: '',
+                errors: {
+                    title: [],
+                    body: []
+                }
+            }
+        },
+
+        computed: {
+            buttonText () {
+                return 'Ask Question'
+            }
+        },
+
+        methods: {
+            handleSubmit () {
+
+            },
+
+            errorClass (column) {
+                return [
+                    'form-control',
+                    this.errors[column] && this.errors[column][0] ? 'is-invalid' : '',
+                ]
+            }
+        }
     }
 </script>
-
-<style scoped>
-
-</style>
