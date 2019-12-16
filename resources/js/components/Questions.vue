@@ -41,8 +41,10 @@
             fetchQuestions () {
                 axios.get('/questions')
                     .then(({ data }) => {
-                        this.questions = data.data
-                    })
+                        this.questions = data.data;
+                        this.meta = data.meta;
+                        this.links = data.links;
+                    });
             }
         }
     }
