@@ -27,7 +27,9 @@
 
         data () {
             return {
-                questions: []
+                questions: [],
+                meta: {},
+                links: {}
             }
         },
 
