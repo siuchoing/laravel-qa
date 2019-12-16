@@ -31,6 +31,26 @@
             isLast () {
                 return this.meta.current_page === this.meta.last_page;
             }
+        },
+
+        methods: {
+            //move to the previous page
+            switchPage () {
+                this.$router.push({
+                    name: 'questions',
+                    query: {
+                        page: this.meta.current_page
+                    },
+                });
+            },
+
+            // call the switchPage to actually switch the previous page
+            prev () {
+                if (! this.isFirst) {
+                    this.meta.current_page--;
+                }
+                this.switchPage();
+            }
         }
     }
 
