@@ -8,7 +8,9 @@
                 <strong>Sorry</strong> There are no questions available.
             </div>
 
-            <!-- pagination goes here -->
+            <div class="card-footer">
+                <pagination :meta="meta" :links="links"></pagination>
+            </div>
         </div>
     </div>
 </template>
