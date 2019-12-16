@@ -1,10 +1,18 @@
-<div class="row align-items-center">
-    <div class="col"></div>
-    <!-- 1st column -->
+<template>
+    <div class="row align-items-center">
+        <div class="col">
+            <button class="btn btn-outline-secondary">Newer</button>
+        </div>
+        <!-- 1st column -->
 
-    <div class="col"></div>
-    <!-- 2nd column -->
+        <div class="col text-center">
+            Page 1 of 5
+        </div>
+        <!-- 2nd column -->
 
-    <div class="col"></div>
-    <!-- 3rd column -->
-</div>
+        <div class="col text-right">
+            <button class="btn btn-outline-secondary">Older</button>
+        </div>
+        <!-- 3rd column -->
+    </div>
+</template>
