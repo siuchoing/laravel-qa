@@ -16,3 +16,9 @@
         <!-- 3rd column -->
     </div>
 </template>
+
+<script>
+    export default {
+        props: ['meta', 'links']
+    }
+</script>
