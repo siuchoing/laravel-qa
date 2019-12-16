@@ -12,3 +12,30 @@
         </div>
     </div>
 </template>
+
+<script>
+    import QuestionExcerpt from './QuestionExcerpt.vue'
+
+    export default {
+        components: { QuestionExcerpt },
+
+        data () {
+            return {
+                questions: []
+            }
+        },
+
+        mounted () {
+            this.fetchQuestions();
+        },
+
+        methods: {
+            fetchQuestions () {
+                axios.get('/questions')
+                    .then(({ data }) => {
+                        this.questions = data.data
+                    })
+            }
+        }
+    }
+</script>
