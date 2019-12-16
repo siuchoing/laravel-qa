@@ -9,7 +9,7 @@
         <!-- 2nd column -->
 
         <div class="col text-right">
-            <button :disabled="isLast" ...>Older</button>
+            <button :disabled="isLast" @click="next" class="btn btn-outline-secondary">Older</button>
         </div>
         <!-- 3rd column -->
     </div>
