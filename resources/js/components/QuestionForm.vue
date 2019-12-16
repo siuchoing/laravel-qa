@@ -43,7 +43,10 @@
 
         methods: {
             handleSubmit () {
-
+                this.$emit('submitted', {
+                    title: this.title,
+                    body: this.body
+                })
             },
 
             errorClass (column) {
