@@ -1,5 +1,5 @@
 <template>
-    <form action="{{ route('questions.store') }}" method="post">
+    <form @submit.prevent="handleSubmit">
         <div class="form-group">
             <label for="question-title">Question Title</label>
             <input type="text" name="title" value="{{ old('title', $question->title) }}" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}">
