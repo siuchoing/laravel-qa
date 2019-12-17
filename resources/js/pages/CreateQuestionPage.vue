@@ -30,12 +30,12 @@
 
         methods: {
             create (data) {
-                axios.post('/question', data)
+                axios.post('/questions', data)
                     .then(res => {
 
                     })
                     .catch(({ response }) => {
-                        console.log('error', reponse.data.errors)
+                        console.log('error', response.data.errors)
                     })
             }
         }
