@@ -25,17 +25,20 @@
 <script>
 
     import QuestionForm from '../components/QuestionForm.vue'
+    import EventBus from '../event-bus'
+
     export default {
         components: { QuestionForm },
 
         methods: {
             create (data) {
                 axios.post('/questions', data)
-                    .then(res => {
-
+                    .then(({ data }) => {
+                        this.$router.push({ name: 'questions' })
+                        this.$toast.success(data.message, "Success")
                     })
                     .catch(({ response }) => {
-                        console.log('error', response.data.errors)
+                        EventBus.$emit('error', response.data.errors)
                     })
             }
         }
