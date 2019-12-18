@@ -29,6 +29,14 @@
     import MEditor from './MEditor.vue'
     export default {
         components: { MEditor },
+
+        props: {
+            isEdit: {
+                type: Boolean,
+                default: false
+            }
+        },
+
         data () {
             return {
                 title: '',
@@ -43,11 +51,17 @@
         // listen to the error event by saying event bus on error, and assign the error messages from the parent to local errors variable.
         mounted () {
             EventBus.$on('error', errors => this.errors = errors)
+
+            // populate the form inputs if the isEdit is true
+            if (this.isEdit) {
+                this.fetchQuestion();
+            }fetchQuestion
         },
 
         computed: {
+            // Change the button's text by props data
             buttonText () {
-                return 'Ask Question'
+                return this.isEdit ? 'Update Question' : 'Ask Question'
             }
         },
 
@@ -64,7 +78,20 @@
                     'form-control',
                     this.errors[column] && this.errors[column][0] ? 'is-invalid' : '',
                 ]
+            },
+
+            fetchQuestion () {
+                // To assign the title and body from api response to title and body property respectively by using get request
+                axios.get(`/questions/${this.$route.params.id}`)
+                    .then(({ data }) => {
+                        this.title = data.title
+                        this.body = data.body
+                    })
+                    .catch(error => {
+                        console.log(error.response);
+                    })
             }
+
         }
     }
 </script>
