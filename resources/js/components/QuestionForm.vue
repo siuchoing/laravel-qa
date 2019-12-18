@@ -55,7 +55,7 @@
             // populate the form inputs if the isEdit is true
             if (this.isEdit) {
                 this.fetchQuestion();
-            }fetchQuestion
+            }
         },
 
         computed: {
