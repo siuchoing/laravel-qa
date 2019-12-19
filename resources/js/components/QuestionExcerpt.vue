@@ -41,8 +41,8 @@
     import destroy from '../mixins/destroy'
 
     export default {
-        props: ['question', 'destroy'],
-
+        mixins: [destroy],
+        props: ['question'],
         methods: {
             str_plural (str, count) {
                 return str + (count > 1 ? 's' : '')
