@@ -49,7 +49,7 @@
             },
 
             delete () {
-                axios.delete("/questions/" + this.question.id)
+                axios.delete(`/questions/${this.question.id}`)
                     .then(({data}) => {
                         this.$toast.success(data.message, "Success", { timeout: 2000 });
                         this.$emit('deleted');
