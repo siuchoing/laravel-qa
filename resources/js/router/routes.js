@@ -23,7 +23,7 @@ const routes = [
         name: 'questions.create'
     },
     {
-        path: '/questions/:id/edit',
+        path: '/questions/:id/edit',    // this.$router.params.id
         component: EditQuestionPage,
         name: 'questions.edit'
     },
