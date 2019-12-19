@@ -38,12 +38,22 @@
 </template>
 
 <script>
+    import destroy from '../mixins/destroy'
+
     export default {
-        props: ['question'],
+        props: ['question', 'destroy'],
 
         methods: {
             str_plural (str, count) {
                 return str + (count > 1 ? 's' : '')
+            },
+
+            delete () {
+                axios.delete("/questions/" + this.question.id)
+                    .then(({data}) => {
+                        this.$toast.success(data.message, "Success", { timeout: 2000 });
+                        this.$emit('deleted');
+                    });
             }
         },
 
