@@ -23,7 +23,7 @@ const routes = [
         name: 'questions.create'
     },
     {
-        path: '/questions/:id/edit',    // this.$router.params.id
+        path: '/questions/:id/edit',    // this.$router.params.slug
         component: EditQuestionPage,
         name: 'questions.edit'
     },
@@ -39,7 +39,8 @@ const routes = [
     {
         path: '/questions/:slug',
         component: QuestionPage,
-        name: 'questions.show'
+        name: 'questions.show',
+        props: true             // let vue router to pass URL parameter as prop.
     },
     {
         path: '*',
